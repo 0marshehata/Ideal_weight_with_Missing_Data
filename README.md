@@ -1,4 +1,4 @@
-# Explanation of the `Assignment.ipynb` file code (detailed in Arabic)
+# Explanation of the `Assignment.ipynb` file code ( Made By Omar Shehata )
 
 ---
 
