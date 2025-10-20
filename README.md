@@ -1,29 +1,28 @@
-# شرح كود الملف `Assignment.ipynb` (تفصيلي بالعربية)
+# Explanation of the `Assignment.ipynb` file code (detailed in Arabic)
 
 ---
 
-## الخلية 1 — نوع: `markdown`
+## Cell 1 — Type: `markdown`
 
-**محتوى (Markdown):**
+**Content (Markdown):**
 
+# 🧠 Handling Missing Values ​​(Google Colab Version)
 
-# 🧠 Handling Missing Values (Google Colab Version)
+This notebook demonstrates how to handle missing values ​​in a dataset using **pandas** in Google Colab.
 
-This notebook demonstrates how to handle missing values in a dataset using **pandas** in Google Colab.
 We'll:
 1. Upload a CSV file
 2. Inspect missing values
-3. Apply three methods: Dropna, Mean Fill, and Forward Fill
+3. Apply three methods: Dropdown, Mean Fill, and Forward Fill
 4. Compare results.
 
-
-**شرح مختصر:** هذه خلية وصف/ملاحظات في النوتبوك، تُستخدم لشرح أو توثيق الكود.
+**Brief explanation:** This is a description/notes cell in the notebook, used to explain or document code.
 
 ---
 
-## الخلية 2 — نوع: `code`
+## Cell 2 — Type: `code`
 
-**الكود:**
+**Code:**
 
 ```python
 # --- 📦 Import Libraries ---
@@ -32,25 +31,25 @@ import numpy as np
 from google.colab import files
 ```
 
-**شرح سطر بسطر:**
+**Line-by-Line Explanation:**
 
-- سطر 1: `# --- 📦 Import Libraries ---`
-  - تعليق يشرح السطر أو مجموعة الأسطر، ولا يُنفّذ ككود.
+- Line 1: `# --- 📦 Import Libraries ---`
+- A comment that explains the line or group of lines, and is not executed as code.
 
-- سطر 2: `import pandas as pd`
-  - استيراد مكتبة أو حزم — يستخدم لجلب وظائف جاهزة (مثل numpy, pandas, matplotlib).
+- Line 2: `import pandas as pd`
+- Import a library or package — Used to import pre-existing functions (e.g., numpy, pandas, matplotlib).
 
-- سطر 3: `import numpy as np`
-  - استيراد مكتبة أو حزم — يستخدم لجلب وظائف جاهزة (مثل numpy, pandas, matplotlib).
+- Line 3: `import numpy as np`
+- Import a library or package — Used to import pre-existing functions (e.g., numpy, pandas, matplotlib).
 
-- سطر 4: `from google.colab import files`
-  - استيراد مكتبة أو حزم — يستخدم لجلب وظائف جاهزة (مثل numpy, pandas, matplotlib).
+Line 4: `from google.colab import files`
+- Import a library or package — used to import ready-made functions (such as numpy, pandas, matplotlib).
 
 ---
 
-## الخلية 3 — نوع: `code`
+## Cell 3 — Type: `code`
 
-**الكود:**
+**Code:**
 
 ```python
 # --- 📂 Upload CSV File ---
@@ -62,34 +61,34 @@ file_name = list(uploaded.keys())[0]
 print(f"\n✅ File uploaded successfully: {file_name}")
 ```
 
-**شرح سطر بسطر:**
+**Line-by-Line Explanation:**
 
-- سطر 1: `# --- 📂 Upload CSV File ---`
-  - تعليق يشرح السطر أو مجموعة الأسطر، ولا يُنفّذ ككود.
+- Line 1: `# --- 📂 Upload CSV File ---`
+- A comment that explains the line or group of lines, and is not executed as code.
 
-- سطر 2: `print("📁 Please upload your dataset file (e.g., ideal_weight_dataset_with_missing.csv):")`
-  - طباعة قيمة إلى المخرج (الشاشة) لملاحظة النتائج أو التصحيح.
+- Line 2: `print("📁 Please upload your dataset file (e.g., ideal_weight_dataset_with_missing.csv):")`
+- Prints a value to the output (screen) for observation or debugging.
 
-- سطر 3: `uploaded = files.upload()`
-  - تعيين قيمة لمتغير (تخزين بيانات في اسم لاستخدام لاحق).
+- Line 3: `uploaded = files.upload()`
+- Assigns a value to a variable (stores data in a name for later use).
 
-- سطر 4: ``
-  - سطر فارغ (فاصل بصري).
+- Line 4: ``
+- Blank line (visual separator).
 
-- سطر 5: `# Get uploaded file name`
-  - تعليق يشرح السطر أو مجموعة الأسطر، ولا يُنفّذ ككود.
+- Line 5: `# Get uploaded file name`
+- A comment explaining the line or group of lines, not executed as code.
 
-- سطر 6: `file_name = list(uploaded.keys())[0]`
-  - تعيين قيمة لمتغير (تخزين بيانات في اسم لاستخدام لاحق).
+- Line 6: `file_name = list(uploaded.keys())[0]`
+- Assigns a value to a variable (stores data in a name for later use).
 
-- سطر 7: `print(f"\n✅ File uploaded successfully: {file_name}")`
-  - طباعة قيمة إلى المخرج (الشاشة) لملاحظة النتائج أو التصحيح.
+- Line 7: `print(f"\n✅ File uploaded successfully: {file_name}")`
+- Print a value to the output (screen) for observation or debugging.
 
 ---
 
-## الخلية 4 — نوع: `code`
+## Cell 4 — Type: `code`
 
-**الكود:**
+**Code:**
 
 ```python
 # --- Read the Data ---
@@ -99,171 +98,105 @@ df = pd.read_csv(file_name)
 print("\n👀 First 5 rows of the dataset:")
 print(df.head())
 
-# --- 🔎 Show Missing Values Before Handling ---
-print("\n❌ Number of missing values before handling:")
+# --- 🔎 Show Missing Values ​​Before Handling ---
+print("\n❌ Number of missing values ​​before handling:")
 print(df.isnull().sum())
 ```
 
-**شرح سطر بسطر:**
+**Line-by-Line Explanation:**
 
-- سطر 1: `# --- Read the Data ---`
-  - تعليق يشرح السطر أو مجموعة الأسطر، ولا يُنفّذ ككود.
+- Line 1: `# --- Read the Data ---`
+- A comment that explains the line or group of lines, and is not executed as code.
 
-- سطر 2: `df = pd.read_csv(file_name)`
-  - تعامل مع بيانات عبر مكتبة pandas — جداول، قراءات csv، عمليات تنظيف وتحليل.
+- Line 2: `df = pd.read_csv(file_name)`
+- Manipulates data via the pandas library—tables, CSV reads, cleaning, and parsing.
 
-- سطر 3: ``
-  - سطر فارغ (فاصل بصري).
+- Line 3: ``
+- Blank line (optical separator).
 
-- سطر 4: `# --- 🔍 Show the First 5 Rows ---`
-  - تعليق يشرح السطر أو مجموعة الأسطر، ولا يُنفّذ ككود.
+- Line 4: `# --- 🔍 Show the First 5 Rows ---`
+- A comment that explains the row or group of rows; it is not executed as code.
 
-- سطر 5: `print("\n👀 First 5 rows of the dataset:")`
-  - طباعة قيمة إلى المخرج (الشاشة) لملاحظة النتائج أو التصحيح.
+- Line 5: `print("\n👀 First 5 rows of the dataset:")`
+- Prints a value to the output (screen) for observation or debugging.
 
-- سطر 6: `print(df.head())`
-  - طباعة قيمة إلى المخرج (الشاشة) لملاحظة النتائج أو التصحيح.
+- Line 6: `print(df.head())`
+- Prints a value to the output (screen) for observation or debugging.
 
-- سطر 7: ``
-  - سطر فارغ (فاصل بصري).
+- Line 7: ``
+- Blank line (optical separator).
 
-- سطر 8: `# --- 🔎 Show Missing Values Before Handling ---`
-  - تعليق يشرح السطر أو مجموعة الأسطر، ولا يُنفّذ ككود.
+- Line 8: `# --- 🔎 Show Missing Values ​​Before Handling ---`
+- A comment that explains the line or group of lines, and is not executed as code.
 
-- سطر 9: `print("\n❌ Number of missing values before handling:")`
-  - طباعة قيمة إلى المخرج (الشاشة) لملاحظة النتائج أو التصحيح.
+- Line 9: `print("\n❌ Number of missing values ​​before handling:")`
+- Prints a value to the output (screen) for observation or debugging.
 
-- سطر 10: `print(df.isnull().sum())`
-  - طباعة قيمة إلى المخرج (الشاشة) لملاحظة النتائج أو التصحيح.
+- Line 10: `print(df.isnull().sum())`
+- Prints a value to the output (screen) for observation or debugging.
 
 ---
 
-## الخلية 5 — نوع: `code`
+## Cell 5 — Type: `code`
 
-**الكود:**
+**Code:**
 
 ```python
-# --- 1️⃣ Remove Missing Values Completely ---
+# --- 1️⃣ Remove Missing Values ​​Completely ---
 df_drop = df.dropna()
 print("\n✅ After using dropna():")
 print(df_drop.isnull().sum())
 ```
 
-**شرح سطر بسطر:**
+**Line-by-Line Explanation:**
 
-- سطر 1: `# --- 1️⃣ Remove Missing Values Completely ---`
-  - تعليق يشرح السطر أو مجموعة الأسطر، ولا يُنفّذ ككود.
+- Line 1: `# --- 1️⃣ Remove Missing Values ​​Completely ---`
+- A comment that explains the line or group of lines, and is not executed as code.
 
-- سطر 2: `df_drop = df.dropna()`
-  - تعيين قيمة لمتغير (تخزين بيانات في اسم لاستخدام لاحق).
+- Line 2: `df_drop = df.dropna()`
+- Assigns a value to a variable (stores data in a name for later use).
 
-- سطر 3: `print("\n✅ After using dropna():")`
-  - طباعة قيمة إلى المخرج (الشاشة) لملاحظة النتائج أو التصحيح.
+- Line 3: `print("\n✅ After using dropna():")`
+- Prints a value to the output (screen) for observation or debugging.
 
-- سطر 4: `print(df_drop.isnull().sum())`
-  - طباعة قيمة إلى المخرج (الشاشة) لملاحظة النتائج أو التصحيح.
+- Line 4: `print(df_drop.isnull().sum())`
+- Prints a value to the output (screen) for observation or debugging.
 
 ---
 
-## الخلية 6 — نوع: `code`
+## Cell 6 — Type: `code`
 
-**الكود:**
+**Code:**
 
 ```python
-# --- 2️⃣ Fill Missing Values with Mean ---
+# --- 2️⃣ Fill Missing Values ​​with Mean ---
 df_mean = df.fillna(df.mean(numeric_only=True))
 print("\n✅ After using mean fill:")
 print(df_mean.isnull().sum())
 ```
 
-**شرح سطر بسطر:**
+**Line-by-Line Explanation:**
 
-- سطر 1: `# --- 2️⃣ Fill Missing Values with Mean ---`
-  - تعليق يشرح السطر أو مجموعة الأسطر، ولا يُنفّذ ككود.
+- Line 1: `# --- 2️⃣ Fill Missing Values ​​with Mean ---`
+- A comment explaining the line or group of lines, not executed as code.
 
-- سطر 2: `df_mean = df.fillna(df.mean(numeric_only=True))`
-  - تعيين قيمة لمتغير (تخزين بيانات في اسم لاستخدام لاحق).
+- Line 2: `df_mean = df.fillna(df.mean(numeric_only=True))`
+- Assign a value to a variable (store data in a name for later use).
 
-- سطر 3: `print("\n✅ After using mean fill:")`
-  - طباعة قيمة إلى المخرج (الشاشة) لملاحظة النتائج أو التصحيح.
+- Line 3: `print("\n✅ After using mean fill:")`
+- Print a value to the output (screen) for observation or debugging.
 
-- سطر 4: `print(df_mean.isnull().sum())`
-  - طباعة قيمة إلى المخرج (الشاشة) لملاحظة النتائج أو التصحيح.
+- Line 4: `print(df_mean.isnull().sum())`
+- Print a value to the output (screen) for observation or debugging.
 
 ---
 
-## الخلية 7 — نوع: `code`
+## Cell 7 — Type: `code`
 
-**الكود:**
+**Code:**
 
 ```python
 # --- 3️⃣ Forward Fill (Previous Value) ---
 df_ffill = df.ffill()
 print("\n✅ After using forward fill:")
-print(df_ffill.isnull().sum())
-```
-
-**شرح سطر بسطر:**
-
-- سطر 1: `# --- 3️⃣ Forward Fill (Previous Value) ---`
-  - تعليق يشرح السطر أو مجموعة الأسطر، ولا يُنفّذ ككود.
-
-- سطر 2: `df_ffill = df.ffill()`
-  - تعيين قيمة لمتغير (تخزين بيانات في اسم لاستخدام لاحق).
-
-- سطر 3: `print("\n✅ After using forward fill:")`
-  - طباعة قيمة إلى المخرج (الشاشة) لملاحظة النتائج أو التصحيح.
-
-- سطر 4: `print(df_ffill.isnull().sum())`
-  - طباعة قيمة إلى المخرج (الشاشة) لملاحظة النتائج أو التصحيح.
-
----
-
-## الخلية 8 — نوع: `code`
-
-**الكود:**
-
-```python
-# --- 📊 Compare All Three Methods ---
-comparison = pd.DataFrame({
-    'Original Missing': df.isnull().sum(),
-    'After Dropna': df_drop.isnull().sum(),
-    'After Mean Fill': df_mean.isnull().sum(),
-    'After Forward Fill': df_ffill.isnull().sum()
-})
-
-print("\n📊 Comparison of All Three Methods:")
-print(comparison)
-```
-
-**شرح سطر بسطر:**
-
-- سطر 1: `# --- 📊 Compare All Three Methods ---`
-  - تعليق يشرح السطر أو مجموعة الأسطر، ولا يُنفّذ ككود.
-
-- سطر 2: `comparison = pd.DataFrame({`
-  - تعامل مع بيانات عبر مكتبة pandas — جداول، قراءات csv، عمليات تنظيف وتحليل.
-
-- سطر 3: `    'Original Missing': df.isnull().sum(),`
-  - سطر برمجي عام — ينفّذ عملية محددة ضمن البرنامج (تفصيل يعتمد على السياق).
-
-- سطر 4: `    'After Dropna': df_drop.isnull().sum(),`
-  - سطر برمجي عام — ينفّذ عملية محددة ضمن البرنامج (تفصيل يعتمد على السياق).
-
-- سطر 5: `    'After Mean Fill': df_mean.isnull().sum(),`
-  - سطر برمجي عام — ينفّذ عملية محددة ضمن البرنامج (تفصيل يعتمد على السياق).
-
-- سطر 6: `    'After Forward Fill': df_ffill.isnull().sum()`
-  - سطر برمجي عام — ينفّذ عملية محددة ضمن البرنامج (تفصيل يعتمد على السياق).
-
-- سطر 7: `})`
-  - سطر برمجي عام — ينفّذ عملية محددة ضمن البرنامج (تفصيل يعتمد على السياق).
-
-- سطر 8: ``
-  - سطر فارغ (فاصل بصري).
-
-- سطر 9: `print("\n📊 Comparison of All Three Methods:")`
-  - طباعة قيمة إلى المخرج (الشاشة) لملاحظة النتائج أو التصحيح.
-
-- سطر 10: `print(comparison)`
-  - طباعة قيمة إلى المخرج (الشاشة) لملاحظة النتائج أو التصحيح.
+print(df_ffill.isnull().sum(
